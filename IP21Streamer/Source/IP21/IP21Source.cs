@@ -15,9 +15,9 @@ namespace IP21Streamer.Source.IP21
 
         #region Fields
 
-        static readonly ILog log = LogManager.GetLogger(typeof(IP21Source));
+        private static readonly ILog log = LogManager.GetLogger(typeof(IP21Source));
 
-        private const int MAX_NODES_TO_RETURN = 100000;
+        
         private const int BATCH_SIZE = 1000;
 
         private const IdType ID_TYPE = IdType.String;

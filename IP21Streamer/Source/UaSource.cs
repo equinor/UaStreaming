@@ -13,14 +13,15 @@ namespace IP21Streamer.Source
     abstract class UaSource : ISource
     {
         #region Fields
-        static readonly ILog log = LogManager.GetLogger("UaSource");
+        private static readonly ILog log = LogManager.GetLogger(typeof(UaSource));
 
         protected const int SECONDS = 1000;
-        private const int PUBLISHING_INTERVAL = 2 * SECONDS;
+        protected const int PUBLISHING_INTERVAL = 2 * SECONDS;
+        protected const int MAX_NODES_TO_RETURN = 100000;
 
-        private ApplicationInstance _applicationInstance;
+        protected ApplicationInstance _applicationInstance;
         protected Session _session = null;
-        private Subscription _subscription = null;
+        protected Subscription _subscription = null;
         #endregion
 
         #region Construction
@@ -55,6 +56,39 @@ namespace IP21Streamer.Source
 
         #region Browsing and Updating Model
         public abstract void GetUpdatedModel();
+
+        protected List<ReferenceDescription> BrowseFolder(NodeId FolderNodeId)
+        {
+            var nodeReferences = new List<ReferenceDescription>();
+
+            try
+            {
+                if (_session == null) return nodeReferences;
+
+                BrowseContext context = new BrowseContext
+                {
+                    BrowseDirection = BrowseDirection.Forward,
+                    ReferenceTypeId = ReferenceTypeIds.Organizes,
+                    MaxReferencesToReturn = MAX_NODES_TO_RETURN,
+                    IncludeSubtypes = true
+                };
+
+                //byte[] continuationPoint = null;
+
+                nodeReferences = _session.Browse(
+                    FolderNodeId,
+                    context,
+                    new RequestSettings { OperationTimeout = 10 * SECONDS },
+                    out byte[] continuationPoint);
+
+            }
+            catch (Exception exception)
+            {
+                log.Error("Error in BrowseFolder", exception);
+            }
+
+            return nodeReferences;
+        }
         #endregion
 
         #region Subscription
@@ -94,6 +128,90 @@ namespace IP21Streamer.Source
         {
             throw new NotImplementedException();
         }
+        #endregion
+
+        #region Read Nodes
+        protected List<UaNode> GetAllNodeAttributesInBatches(List<ReferenceDescription> nodeReferences, int batchSize)
+        {
+            List<UaNode> nodes = new List<UaNode>();
+
+            while (nodeReferences.Any())
+            {
+                var nodeRefsBatch = nodeReferences.Dequeue(batchSize);
+
+                nodes.AddRange(
+                    GetAllNodeAttributes(nodeRefsBatch));
+            }
+
+            return nodes;
+        }
+
+        protected List<UaNode> GetAllNodeAttributes(List<ReferenceDescription> nodeReferences)
+        {
+            List<DataValue> browseNameData = GetNodeAttributes(nodeReferences, Attributes.BrowseName);
+            List<DataValue> displayNameData = GetNodeAttributes(nodeReferences, Attributes.DisplayName);
+            List<DataValue> descriptionData = GetNodeAttributes(nodeReferences, Attributes.Description);
+
+            List<UaNode> nodes = nodeReferences
+                .Select(nodeRef => UaNodeFromReferenceDescription(nodeRef))
+                .ToList();
+
+            nodes.FillWith(browseNameData, displayNameData, descriptionData);
+
+            return nodes;
+        }
+
+        protected List<DataValue> GetNodeAttributes(List<ReferenceDescription> nodeReferences, uint nodeAttribute)
+        {
+            List<ReadValueId> readValues = nodeReferences
+                    .Select(nodeRef => ReadValueIdFromReferenceDescriptions(nodeRef, nodeAttribute))
+                    .ToList();
+
+            List<DataValue> result = ReadNodeAttributes(readValues);
+
+            return result;
+        }
+
+        protected List<DataValue> ReadNodeAttributes(List<ReadValueId> readValues)
+        {
+            List<DataValue> results = _session.Read(
+                        readValues,
+                        0,
+                        TimestampsToReturn.Both,
+                        new RequestSettings { OperationTimeout = 10 * SECONDS });
+
+            return results;
+        }
+
+        #endregion
+
+        #region Helpers
+        protected ReadValueId ReadValueIdFromReferenceDescriptions(ReferenceDescription nodeRef, uint attribute)
+        {
+            ExpandedNodeId ENid = nodeRef.NodeId;
+            NodeId nodeId = new NodeId(ENid.IdType, ENid.Identifier, ENid.NamespaceIndex);
+
+            return new ReadValueId()
+            {
+                NodeId = nodeId,
+                AttributeId = attribute
+            };
+        }
+
+        protected UaNode UaNodeFromReferenceDescription(ReferenceDescription nodeReference)
+        {
+            ExpandedNodeId nodeId = nodeReference.NodeId;
+            return new IP21Tag
+            {
+                NodeId = new NodeId(nodeId.IdType, nodeId.Identifier, nodeId.NamespaceIndex)
+            };
+        }
+        #endregion
+
+        #region Extensions
+
+            
+
         #endregion
 
         public void GetEventCounts()
