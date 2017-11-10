@@ -1,0 +1,10 @@
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\IP21Streamer.exe.config
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\IP21Streamer.exe
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\IP21Streamer.pdb
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\log4net.dll
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\log4net.xml
+C:\dotNet\UaStreaming\IP21Streamer\obj\Debug\IP21Streamer.csprojResolveAssemblyReference.cache
+C:\dotNet\UaStreaming\IP21Streamer\obj\Debug\IP21Streamer.csproj.CoreCompileInputs.cache
+C:\dotNet\UaStreaming\IP21Streamer\obj\Debug\IP21Streamer.exe
+C:\dotNet\UaStreaming\IP21Streamer\obj\Debug\IP21Streamer.pdb
