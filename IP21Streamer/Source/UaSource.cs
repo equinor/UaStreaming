@@ -233,6 +233,14 @@ namespace IP21Streamer.Source
                 propertyReferences.Select(propList => propList.Last()).ToList(),
                 Attributes.BrowseName);
 
+            /*
+            engineeringUnitData.First().WrappedValue.GetType() == DataTypes.Range;
+            engineeringUnitData.First().WrappedValue.ToFloatArray();
+            DataTypes.Range;
+            DataTypes.EUInformation;
+            propertyReferences.First().First() == DataTypes.Range;
+            */
+
             // Here we are
             // Write a new Fill in method
         }
@@ -263,15 +271,10 @@ namespace IP21Streamer.Source
 
         protected NodeId NodeIdFromENodeId(ExpandedNodeId nodeId)
         {
-            return new ExpandedNodeId(nodeId.IdType, nodeId.Identifier, nodeId.NamespaceIndex);
+            return new NodeId(nodeId.IdType, nodeId.Identifier, nodeId.NamespaceIndex);
         }
         #endregion
 
-        #region Extensions
-
-
-
-        #endregion
 
         public void GetEventCounts()
         {

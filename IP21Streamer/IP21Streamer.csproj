@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Application\App.cs" />
     <Compile Include="Application\Settings.cs" />
+    <Compile Include="Source\AnalogItemNode.cs" />
     <Compile Include="Source\IP21\IP21Measurement.cs" />
     <Compile Include="Source\IP21\IP21Source.cs" />
     <Compile Include="Source\IP21\IP21Tag.cs" />
