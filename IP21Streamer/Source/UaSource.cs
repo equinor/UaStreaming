@@ -89,6 +89,42 @@ namespace IP21Streamer.Source
 
             return nodeReferences;
         }
+
+        private List<List<ReferenceDescription>> BrowseAnalogItems(List<ReferenceDescription> nodeReferences)
+        {
+            var propertyReferences = new List<List<ReferenceDescription>>();
+
+            try
+            {
+                if (_session == null) return propertyReferences;
+
+                List<BrowseDescription> nodesToBrowse = BrowseDescriptionsFromReferenceDescriptions(nodeReferences);
+
+                propertyReferences = _session.BrowseList(nodesToBrowse);
+
+            }
+            catch (Exception exception)
+            {
+                log.Error("Error Browsing for AnalogItems", exception);
+            }
+
+            return propertyReferences;
+        }
+
+        private List<BrowseDescription> BrowseDescriptionsFromReferenceDescriptions(List<ReferenceDescription> nodeReferences)
+        {
+            return nodeReferences
+                .Select(nodeRef =>
+                {
+                    return new BrowseDescription
+                    {
+                        BrowseDirection = BrowseDirection.Forward,
+                        ReferenceTypeId = ReferenceTypeIds.HasProperty,
+                        IncludeSubtypes = true,
+                        NodeId = NodeIdFromENodeId(nodeRef.NodeId)
+                    };
+                }).ToList();
+        }
         #endregion
 
         #region Subscription
@@ -130,7 +166,7 @@ namespace IP21Streamer.Source
         }
         #endregion
 
-        #region Read Nodes
+        #region Reading Nodes
         protected List<UaNode> GetAllNodeAttributesInBatches(List<ReferenceDescription> nodeReferences, int batchSize)
         {
             List<UaNode> nodes = new List<UaNode>();
@@ -183,6 +219,24 @@ namespace IP21Streamer.Source
             return results;
         }
 
+        protected List<AnalogItemNode> GetAnalogItems(List<ReferenceDescription> nodeReferences)
+        {
+            var baseAnalogItems = GetAllNodeAttributes(nodeReferences);
+
+            var propertyReferences = BrowseAnalogItems(nodeReferences);
+
+            List<DataValue> euRangeData = GetNodeAttributes(
+                propertyReferences.Select(propList => propList.First()).ToList(),
+                Attributes.BrowseName);
+
+            List<DataValue> engineeringUnitData = GetNodeAttributes(
+                propertyReferences.Select(propList => propList.Last()).ToList(),
+                Attributes.BrowseName);
+
+            // Here we are
+            // Write a new Fill in method
+        }
+
         #endregion
 
         #region Helpers
@@ -206,11 +260,16 @@ namespace IP21Streamer.Source
                 NodeId = new NodeId(nodeId.IdType, nodeId.Identifier, nodeId.NamespaceIndex)
             };
         }
+
+        protected NodeId NodeIdFromENodeId(ExpandedNodeId nodeId)
+        {
+            return new ExpandedNodeId(nodeId.IdType, nodeId.Identifier, nodeId.NamespaceIndex);
+        }
         #endregion
 
         #region Extensions
 
-            
+
 
         #endregion
 
