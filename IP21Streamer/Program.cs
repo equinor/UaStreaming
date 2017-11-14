@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using log4net;
 using IP21Streamer.Application;
 using System.Threading;
+using IP21Streamer.Source.UaSource;
+using IP21Streamer.Source.UaSource.IP21;
+using UnifiedAutomation.UaBase;
 
 namespace IP21Streamer
 {
@@ -22,11 +25,12 @@ namespace IP21Streamer
 
             application = new App();
 
-            while (true)
-            {
-                Thread.Sleep(5 * App.SECONDS);
-                log.Debug($"SiteTag: {App.settings.SiteTag}");
-            }
+            IP21Source source = new IP21Source(ApplicationInstance.Default);
+
+            source.Connect("opc.tcp://mo-tw08:63500/InfoPlus21/OpcUa/Server", "statoil-net\\bomu", "9oyU6gof");
+
+            source.GetUpdatedModel();
+
         }
     }
 }

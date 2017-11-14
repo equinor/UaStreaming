@@ -8,3 +8,7 @@ C:\dotNet\UaStreaming\IP21Streamer\obj\Debug\IP21Streamer.csprojResolveAssemblyR
 C:\dotNet\UaStreaming\IP21Streamer\obj\Debug\IP21Streamer.csproj.CoreCompileInputs.cache
 C:\dotNet\UaStreaming\IP21Streamer\obj\Debug\IP21Streamer.exe
 C:\dotNet\UaStreaming\IP21Streamer\obj\Debug\IP21Streamer.pdb
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\Newtonsoft.Json.dll
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\UnifiedAutomation.UaBase.dll
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\UnifiedAutomation.UaClient.dll
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\Newtonsoft.Json.xml

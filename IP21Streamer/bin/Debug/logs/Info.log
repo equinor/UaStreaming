@@ -1,0 +1,194 @@
+2017-11-14 14:47:33,876 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.ArgumentException: Could not determine JSON object type for type UnifiedAutomation.UaBase.NodeId.
+   at Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   at Newtonsoft.Json.Linq.JObject.JObjectDynamicProxy.TrySetMember(JObject instance, SetMemberBinder binder, Object value)
+   at CallSite.Target(Closure , CallSite , Object , NodeId )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 52
+2017-11-14 14:48:48,435 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.ArgumentException: Could not determine JSON object type for type UnifiedAutomation.UaBase.NodeId.
+   at Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   at Newtonsoft.Json.Linq.JObject.JObjectDynamicProxy.TrySetMember(JObject instance, SetMemberBinder binder, Object value)
+   at CallSite.Target(Closure , CallSite , Object , NodeId )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 52
+2017-11-14 14:50:04,505 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.ArgumentException: Could not determine JSON object type for type UnifiedAutomation.UaBase.NodeId.
+   at Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   at Newtonsoft.Json.Linq.JObject.JObjectDynamicProxy.TrySetMember(JObject instance, SetMemberBinder binder, Object value)
+   at CallSite.Target(Closure , CallSite , Object , NodeId )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 52
+2017-11-14 14:55:22,324 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.ArgumentException: Could not determine JSON object type for type UnifiedAutomation.UaBase.NodeId.
+   at Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   at Newtonsoft.Json.Linq.JObject.JObjectDynamicProxy.TrySetMember(JObject instance, SetMemberBinder binder, Object value)
+   at CallSite.Target(Closure , CallSite , Object , NodeId )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 52
+2017-11-14 14:58:17,796 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.ArgumentException: Could not determine JSON object type for type UnifiedAutomation.UaBase.NodeId.
+   at Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   at Newtonsoft.Json.Linq.JObject.JObjectDynamicProxy.TrySetMember(JObject instance, SetMemberBinder binder, Object value)
+   at CallSite.Target(Closure , CallSite , Object , NodeId )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 52
+2017-11-14 14:58:54,988 IP21Streamer.Source.UaSource.IP21.IP21Source [INFO]- last tagNode: 
+{
+  "nodeId": 65523,
+  "tag": "2:00&FY-900"
+}
+2017-11-14 14:59:52,579 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error in BrowseFolder
+System.TimeoutException: The operation has timed out.
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndBrowse(IAsyncResult result, Byte[]& continuationPoint)
+   at UnifiedAutomation.UaClient.Session.Browse(NodeId nodeToBrowse, BrowseContext browseContext, RequestSettings settings, Byte[]& continuationPoint)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseFolder(NodeId FolderNodeId)
+2017-11-14 14:59:52,615 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel()
+2017-11-14 15:12:19,568 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.PrintDebugTagInfo(List`1 nodeList, String identifier) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 121
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 52
+2017-11-14 15:16:18,818 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.PrintDebugTagInfo(List`1 nodeList, String identifier) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 121
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 52
+2017-11-14 15:44:09,489 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error Browsing for AnalogItems
+UnifiedAutomation.UaBase.StatusException: [BadNothingToDo] ---> UnifiedAutomation.UaBase.StatusException: [BadNothingToDo]
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndBrowse(IAsyncResult result, BrowseResultCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnBrowseListComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndBrowseList(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.BrowseList(List`1 nodesToBrowse)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 103
+2017-11-14 15:44:09,530 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+UnifiedAutomation.UaBase.StatusException: [BadNothingToDo] ---> UnifiedAutomation.UaBase.StatusException: [BadNothingToDo]
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 244
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 237
+   at IP21Streamer.Source.UaSource.UaSource.GetAllNodeAttributes[T](List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 217
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 258
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 50
+2017-11-14 16:02:48,823 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error Browsing for AnalogItems
+UnifiedAutomation.UaBase.StatusException: [BadNothingToDo] ---> UnifiedAutomation.UaBase.StatusException: [BadNothingToDo]
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndBrowse(IAsyncResult result, BrowseResultCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnBrowseListComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndBrowseList(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.BrowseList(List`1 nodesToBrowse)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseForAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 103
+2017-11-14 16:02:48,861 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error Browsing for AnalogItems
+UnifiedAutomation.UaBase.StatusException: [BadNothingToDo] ---> UnifiedAutomation.UaBase.StatusException: [BadNothingToDo]
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndBrowse(IAsyncResult result, BrowseResultCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnBrowseListComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndBrowseList(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.BrowseList(List`1 nodesToBrowse)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 126
+2017-11-14 16:02:48,880 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+UnifiedAutomation.UaBase.StatusException: [BadNothingToDo] ---> UnifiedAutomation.UaBase.StatusException: [BadNothingToDo]
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 267
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 260
+   at IP21Streamer.Source.UaSource.UaSource.GetAllNodeAttributes[T](List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 240
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 281
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 50
+2017-11-14 16:04:37,621 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error Browsing for AnalogItems
+UnifiedAutomation.UaBase.StatusException: [BadNothingToDo] ---> UnifiedAutomation.UaBase.StatusException: [BadNothingToDo]
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndBrowse(IAsyncResult result, BrowseResultCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnBrowseListComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndBrowseList(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.BrowseList(List`1 nodesToBrowse)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseForAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 103
+2017-11-14 16:04:37,659 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error Browsing for AnalogItems
+UnifiedAutomation.UaBase.StatusException: [BadNothingToDo] ---> UnifiedAutomation.UaBase.StatusException: [BadNothingToDo]
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndBrowse(IAsyncResult result, BrowseResultCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnBrowseListComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndBrowseList(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.BrowseList(List`1 nodesToBrowse)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 126
+2017-11-14 16:24:34,734 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error Browsing for AnalogItems
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at IP21Streamer.Source.UaSource.UaSource.<>c.<BrowseForAnalogItems>b__12_0(List`1 refList) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 105
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseForAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 104
+2017-11-14 16:24:34,794 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error Browsing for AnalogItems
+UnifiedAutomation.UaBase.StatusException: [BadNothingToDo] ---> UnifiedAutomation.UaBase.StatusException: [BadNothingToDo]
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndBrowse(IAsyncResult result, BrowseResultCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnBrowseListComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndBrowseList(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.BrowseList(List`1 nodesToBrowse)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 127
+2017-11-14 16:28:29,028 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error Browsing for AnalogItems
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at IP21Streamer.Source.UaSource.UaSource.<>c.<BrowseForAnalogItems>b__12_0(List`1 refList) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 105
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at IP21Streamer.Source.UaSource.UaSource.BrowseForAnalogItems(List`1 nodeReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 104
+2017-11-14 16:46:07,401 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.PrintDebugTagInfo(List`1 nodeList, String identifier) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 135
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 59
+2017-11-14 17:28:41,469 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+System.TimeoutException: The operation has timed out.
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 272
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 265
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 300
