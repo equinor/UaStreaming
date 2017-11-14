@@ -255,7 +255,6 @@ namespace IP21Streamer.Source.UaSource
             return nodes;
         }
 
-
         protected List<DataValue> GetNodeAttributes(List<ReferenceDescription> nodeReferences, uint nodeAttribute)
         {
             List<ReadValueId> readValues = nodeReferences
@@ -265,6 +264,30 @@ namespace IP21Streamer.Source.UaSource
             List<DataValue> result = ReadNodeAttributes(readValues);
 
             return result;
+        }
+
+        protected List<DataValue> GetNodeAttributesInBatches(List<ReferenceDescription> nodeReferences, uint nodeAttribute, int batchSize)
+        {
+            List<DataValue> data = new List<DataValue>();
+            var nodeRefs = nodeReferences.Copy();
+
+            try
+            {
+                while (nodeRefs.Any())
+                {
+                    var batch = nodeRefs.Dequeue(batchSize);
+
+                    data.AddRange(
+                        GetNodeAttributes(nodeReferences, nodeAttribute));
+                }
+            }
+            catch (Exception exception)
+            {
+                log.Error("Error while retrieving NodeAttributes", exception);
+                throw;
+            }
+
+            return data;
         }
 
         protected List<DataValue> ReadNodeAttributes(List<ReadValueId> readValues)
@@ -281,7 +304,8 @@ namespace IP21Streamer.Source.UaSource
         protected List<AnalogItemNode> GetAnalogItems(List<ReferenceDescription> nodeReferences, int sizeOfBatch)
         {
             var properties = GetAllProperties(
-                BrowseAnalogItems(nodeReferences));
+                BrowseAnalogItems(nodeReferences),
+                sizeOfBatch);
 
             var analogItems = GetAllNodeAttributesInBatches<AnalogItemNode>(nodeReferences, sizeOfBatch);
             analogItems.FillWith(properties);
@@ -289,26 +313,44 @@ namespace IP21Streamer.Source.UaSource
             return analogItems;
         }
 
-        private List<List<DataValue>> GetAllProperties(List<List<ReferenceDescription>> propertyReferences)
+        private List<List<DataValue>> GetAllProperties(List<List<ReferenceDescription>> propertyReferences, int batchSize)
         {
-            List<List<DataValue>> properties = new List<List<DataValue>>();
+            var result = new List<List<DataValue>>();
 
             try
             {
-                for (int i = 0; i < propertyReferences.Count; i++)
-                {
-                    properties.Add(
-                        GetNodeAttributes(propertyReferences[i], Attributes.Value));
+                List<ReferenceDescription> referenceList = new List<ReferenceDescription>();
 
-                    log.Debug($"Getting node attributes for analogItemNode nr: {i}");
+                for (int nodeIndex = 0; nodeIndex < propertyReferences.Count; nodeIndex++)
+                {
+                    foreach (var prop in propertyReferences[nodeIndex])
+                    {
+                        prop.UserData = nodeIndex;
+                        referenceList.Add(prop);
+                    }
                 }
+
+                var propertyData = GetNodeAttributesInBatches(referenceList, Attributes.Value, batchSize);
+
+                var properties = new List<List<DataValue>>(propertyReferences.Count);
+
+                for (int propIndex = 0; propIndex < propertyData.Count; propIndex++)
+                {
+                    var nodeIndex = (referenceList[propIndex].UserData) as int?;
+
+                    if (nodeIndex != null)
+                        properties[(int)nodeIndex].Add(propertyData[propIndex]);
+                }
+
+                result = properties;
             }
             catch (Exception exception)
             {
                 log.Error("Error while getting properties", exception);
+                throw;
             }
 
-            return properties;
+            return result;
         }
 
         #endregion
