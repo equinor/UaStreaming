@@ -12,5 +12,14 @@ namespace IP21Streamer.Extensions
         {
             return listToClone.ToList();
         }
+
+        internal static List<T> Dequeue<T>(this List<T> list, int batchSize)
+        {
+            var dequeued = list.GetRange(0, Math.Min(batchSize, list.Count));
+            list.RemoveRange(0, Math.Min(batchSize, list.Count));
+
+            return dequeued;
+        }
     }
+
 }

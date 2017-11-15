@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IP21Streamer.Business
+namespace IP21Streamer.Repository
 {
     public static class Extensions
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Linq.Mapping;
 using log4net;
 
-namespace IP21Streamer.Business
+namespace IP21Streamer.Repository
 {
     [Table(Name = "UATAGS")]
     public class TagItem

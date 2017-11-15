@@ -69,10 +69,11 @@
   <ItemGroup>
     <Compile Include="Application\App.cs" />
     <Compile Include="Application\Settings.cs" />
-    <Compile Include="Business\BusinessLogic.cs" />
-    <Compile Include="Business\Extensions.cs" />
-    <Compile Include="Business\TagItem.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Repository\Extensions.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\MetaDataStore.cs" />
+    <Compile Include="Repository\TagItem.cs" />
     <Compile Include="Source\UaSource\AnalogItemNode.cs" />
     <Compile Include="Source\UaSource\EUInformationProperty.cs" />
     <Compile Include="Source\UaSource\EuRangeProperty.cs" />
@@ -88,13 +89,14 @@
     <Compile Include="Source\UaSource\UaSourceExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EmbeddedResource Include="License\License.lic" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Publish\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

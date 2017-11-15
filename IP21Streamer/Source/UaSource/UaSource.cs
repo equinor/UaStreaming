@@ -397,7 +397,6 @@ namespace IP21Streamer.Source.UaSource
         }
         #endregion
 
-
         public void GetEventCounts()
         {
             throw new NotImplementedException();
