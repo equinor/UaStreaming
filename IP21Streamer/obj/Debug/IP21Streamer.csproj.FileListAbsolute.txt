@@ -12,3 +12,5 @@ C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\Newtonsoft.Json.dll
 C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\UnifiedAutomation.UaBase.dll
 C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\UnifiedAutomation.UaClient.dll
 C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\Newtonsoft.Json.xml
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\System.Data.Common.dll
+C:\dotNet\UaStreaming\IP21Streamer\bin\Debug\System.Data.SqlClient.dll

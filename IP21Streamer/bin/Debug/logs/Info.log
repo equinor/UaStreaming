@@ -192,3 +192,289 @@ System.TimeoutException: The operation has timed out.
    at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 272
    at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 265
    at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 300
+2017-11-15 08:49:26,629 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while retrieving NodeAttributes
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 280
+2017-11-15 08:49:26,647 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 333
+2017-11-15 08:49:26,660 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 350
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences, Int32 sizeOfBatch) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 306
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 48
+2017-11-15 08:53:56,126 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while retrieving NodeAttributes
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 280
+2017-11-15 08:53:56,140 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 333
+2017-11-15 09:04:38,695 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while retrieving NodeAttributes
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 280
+2017-11-15 09:04:38,711 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 333
+2017-11-15 09:04:38,719 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 350
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences, Int32 sizeOfBatch) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 306
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 48
+2017-11-15 09:05:06,321 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while retrieving NodeAttributes
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 280
+2017-11-15 09:05:06,337 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 333
+2017-11-15 09:05:06,348 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 350
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences, Int32 sizeOfBatch) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 306
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 48
+2017-11-15 09:13:00,253 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while retrieving NodeAttributes
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 280
+2017-11-15 09:13:00,270 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 333
+2017-11-15 09:50:26,307 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 343
+2017-11-15 09:50:26,345 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 351
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences, Int32 sizeOfBatch) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 306
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 48
+2017-11-15 09:54:04,594 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 343
+2017-11-15 09:54:04,610 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 351
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences, Int32 sizeOfBatch) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 306
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 48
+2017-11-15 10:04:31,354 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while retrieving NodeAttributes
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 280
+2017-11-15 10:04:31,374 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 334
+2017-11-15 10:04:31,382 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+UnifiedAutomation.UaBase.StatusException: Unexpected error processing request. ---> UnifiedAutomation.UaBase.StatusException: Unexpected error processing request.
+   at UnifiedAutomation.UaBase.ClientBase.ValidateResponse(ResponseHeader header)
+   at UnifiedAutomation.UaBase.SessionClient.EndRead(IAsyncResult result, DataValueCollection& results, DiagnosticInfoCollection& diagnosticInfos)
+   at UnifiedAutomation.UaClient.Session.OnReadComplete(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at UnifiedAutomation.UaBase.AsyncResultBase.ThrowOnError()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete()
+   at UnifiedAutomation.UaBase.AsyncResultBase.WaitForComplete(IAsyncResult ar)
+   at UnifiedAutomation.UaClient.Session.EndRead(IAsyncResult result)
+   at UnifiedAutomation.UaClient.Session.Read(IList`1 nodesToRead, UInt32 maxAge, TimestampsToReturn timestampsToReturn, RequestSettings settings)
+   at IP21Streamer.Source.UaSource.UaSource.ReadNodeAttributes(List`1 readValues) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 295
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributes(List`1 nodeReferences, UInt32 nodeAttribute) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 264
+   at IP21Streamer.Source.UaSource.UaSource.GetNodeAttributesInBatches(List`1 nodeReferences, UInt32 nodeAttribute, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 287
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 351
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences, Int32 sizeOfBatch) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 306
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 48
+2017-11-15 10:07:02,770 IP21Streamer.Source.UaSource.UaSource [ERROR]- Error while getting properties
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 343
+2017-11-15 10:07:02,795 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at IP21Streamer.Source.UaSource.UaSource.GetAllProperties(List`1 propertyReferences, Int32 batchSize) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 351
+   at IP21Streamer.Source.UaSource.UaSource.GetAnalogItems(List`1 nodeReferences, Int32 sizeOfBatch) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\UaSource.cs:line 306
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 48
+2017-11-15 17:20:40,578 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.PrintDebugTagInfo(List`1 tagNodes, String tagName) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 74
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 56
+2017-11-15 17:23:35,360 IP21Streamer.Source.UaSource.IP21.IP21Source [ERROR]- Error while retrieving updated model
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.PrintDebugTagInfo(List`1 tagNodes, String tagName) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 74
+   at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 56

@@ -11,10 +11,10 @@ using UnifiedAutomation.UaClient;
 
 namespace IP21Streamer.Source.UaSource
 {
-    abstract class UaSource : ISource
+    abstract class UaSource<T> : ISource<T> where T: UaNode
     {
         #region Fields
-        private static readonly ILog log = LogManager.GetLogger(typeof(UaSource));
+        private static readonly ILog log = LogManager.GetLogger(typeof(UaSource<T>));
 
         protected const int SECONDS = 1000;
         protected const int PUBLISHING_INTERVAL = 2 * SECONDS;
@@ -56,7 +56,7 @@ namespace IP21Streamer.Source.UaSource
         #endregion
 
         #region Browsing and Updating Model
-        public abstract void GetUpdatedModel();
+        public abstract List<T> GetUpdatedModel();
 
         protected List<ReferenceDescription> BrowseFolder(NodeId FolderNodeId)
         {
@@ -102,7 +102,7 @@ namespace IP21Streamer.Source.UaSource
                 List<BrowseDescription> nodesToBrowse = BrowseDescriptionsFromReferenceDescriptions(nodeReferences, ReferenceTypeIds.HasComponent);
 
                 analogReferences = _session.BrowseList(nodesToBrowse)
-                    .Select( refList => refList.First())
+                    .Select(refList => refList.First())
                     .ToList();
 
             }
@@ -250,7 +250,7 @@ namespace IP21Streamer.Source.UaSource
                 .Select(nodeRef => UaNodeFromReferenceDescription<T>(nodeRef))
                 .ToList();
 
-            nodes.FillWith(browseNameData, displayNameData, descriptionData);
+            nodes.FillWith<T>(browseNameData, displayNameData, descriptionData);
 
             return nodes;
         }
@@ -278,7 +278,7 @@ namespace IP21Streamer.Source.UaSource
                     var batch = nodeRefs.Dequeue(batchSize);
 
                     data.AddRange(
-                        GetNodeAttributes(nodeReferences, nodeAttribute));
+                        GetNodeAttributes(batch, nodeAttribute));
                 }
             }
             catch (Exception exception)
@@ -330,16 +330,22 @@ namespace IP21Streamer.Source.UaSource
                     }
                 }
 
+
                 var propertyData = GetNodeAttributesInBatches(referenceList, Attributes.Value, batchSize);
 
-                var properties = new List<List<DataValue>>(propertyReferences.Count);
+                var properties = new List<List<DataValue>>(new List<DataValue>[propertyReferences.Count]);
 
                 for (int propIndex = 0; propIndex < propertyData.Count; propIndex++)
                 {
                     var nodeIndex = (referenceList[propIndex].UserData) as int?;
 
                     if (nodeIndex != null)
+                    {
+                        if (properties[(int)nodeIndex] == null)
+                            properties[(int)nodeIndex] = new List<DataValue>();
+
                         properties[(int)nodeIndex].Add(propertyData[propIndex]);
+                    }
                 }
 
                 result = properties;
@@ -352,7 +358,6 @@ namespace IP21Streamer.Source.UaSource
 
             return result;
         }
-
         #endregion
 
         #region Helpers

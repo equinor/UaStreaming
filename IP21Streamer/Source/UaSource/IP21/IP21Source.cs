@@ -12,7 +12,7 @@ using Newtonsoft.Json.Linq;
 
 namespace IP21Streamer.Source.UaSource.IP21
 {
-    class IP21Source : UaSource
+    class IP21Source : UaSource<IP21Tag>
     {
 
         #region Fields
@@ -37,11 +37,11 @@ namespace IP21Streamer.Source.UaSource.IP21
         #endregion
 
         #region Update Model
-        public override void GetUpdatedModel()
+        public override List<IP21Tag> GetUpdatedModel()
         {
             try
             {
-                if (_session == null) return;
+                if (_session == null) return null;
 
                 var nodeReferences = BrowseFolder(new NodeId(ID_TYPE, FOLDER_NODEID, NAMESPACE_INDEX));
 
@@ -53,16 +53,16 @@ namespace IP21Streamer.Source.UaSource.IP21
 
                 tagNodes.IncludeMeasurements(analogItemNodes);
 
-                PrintDebugTagInfo(tagNodes, "04-FI-080");
-
+                //PrintDebugTagInfo(tagNodes, "04-FI-080");
+                PrintDebugTagInfo(tagNodes.Last());
+                return tagNodes;
             }
             catch (Exception e)
             {
                 log.Error("Error while retrieving updated model", e);
+                throw;
             }
 
-            Console.WriteLine("Press enter to exit program...");
-            Console.ReadLine();
         }
         #endregion
 
@@ -78,9 +78,29 @@ namespace IP21Streamer.Source.UaSource.IP21
             tagObject.EuRangeLow = tagNode.Measurement.EuRange.Low;
             tagObject.EuRangeHigh = tagNode.Measurement.EuRange.High;
             tagObject.UnitId = tagNode.Measurement.EngineeringUnits.UnitId;
-            tagObject.EngineeringUnit = tagNode.Measurement.EngineeringUnits.DisplayName;
+            tagObject.EngineeringUnit = tagNode.Measurement.EngineeringUnits.DisplayName.Text;
+
+            log.Debug(tagObject.ToString());
+
+        }
+
+        private void PrintDebugTagInfo(IP21Tag tagNode)
+        {
+
+            dynamic tagObject = new JObject();
+            tagObject.tag = tagNode.DisplayName;
+            tagObject.nodeId = tagNode.NodeId.Identifier;
+            tagObject.description = tagNode.Measurement.Description;
+            tagObject.EuRangeLow = tagNode.Measurement.EuRange.Low;
+            tagObject.EuRangeHigh = tagNode.Measurement.EuRange.High;
+            tagObject.UnitId = tagNode.Measurement.EngineeringUnits.UnitId;
+            tagObject.EngineeringUnit = tagNode.Measurement.EngineeringUnits.DisplayName.Text;
+
+            log.Debug(tagObject.ToString());
+
         }
         #endregion
+
 
     }
 }

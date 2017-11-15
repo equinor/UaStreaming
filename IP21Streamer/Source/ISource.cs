@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IP21Streamer.Source.UaSource;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +8,12 @@ using UnifiedAutomation.UaBase;
 
 namespace IP21Streamer.Source
 {
-    interface ISource
+    interface ISource<T>
     {
         void Connect(string serverUrl, string userName, string password);
         void Disconnect();
 
-        void GetUpdatedModel();
+        List<T> GetUpdatedModel();
         void Subscribe();
         void UpdateSubscription();
 

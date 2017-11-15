@@ -17,9 +17,8 @@ namespace IP21Streamer.Application
         public static readonly int UPDATE_SETTINGS_INTERVAL = 1 * MINUTES;
         #endregion
 
-        public static Settings settings = new Settings();
+        public static Settings Settings = new Settings();
 
-        public ISource Ingester { get; private set; }
 
         public App()
         {
@@ -34,8 +33,9 @@ namespace IP21Streamer.Application
             while (true)
             {
                 Thread.Sleep(UPDATE_SETTINGS_INTERVAL);
-                settings.Update();
+                Settings.Update();
             }
         }
+
     }
 }
