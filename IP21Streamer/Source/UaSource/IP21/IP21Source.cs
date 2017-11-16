@@ -9,6 +9,8 @@ using IP21Streamer.Source.IP21;
 using IP21Streamer.Source.UaSource;
 using log4net;
 using Newtonsoft.Json.Linq;
+using IP21Streamer.Repository;
+using IP21Streamer.Model;
 
 namespace IP21Streamer.Source.UaSource.IP21
 {
@@ -18,21 +20,21 @@ namespace IP21Streamer.Source.UaSource.IP21
         #region Fields
 
         private static readonly ILog log = LogManager.GetLogger(typeof(IP21Source));
+        private Action<EventItem> _newEventCallback;
 
-
-        protected const int BATCH_SIZE = 1000;
+        private const int BATCH_SIZE = 1000;
+        private const int SAMPLING_INTERVAL = 5 * 1000;
 
         private const IdType ID_TYPE = IdType.String;
         private const string FOLDER_NODEID = "DA: IP_AnalogDef";
         private const ushort NAMESPACE_INDEX = 2;
 
-        List<IP21Tag> foundTags = new List<IP21Tag>();
-
         #endregion
 
         #region Construction
-        public IP21Source(ApplicationInstance applicationInstance) : base(applicationInstance)
+        public IP21Source(ApplicationInstance applicationInstance, Action<EventItem> newEventCallback) : base(applicationInstance)
         {
+            _newEventCallback = newEventCallback;
         }
         #endregion
 
@@ -66,7 +68,7 @@ namespace IP21Streamer.Source.UaSource.IP21
         }
         #endregion
 
-        #region
+        #region Helpers
         private void PrintDebugTagInfo(List<IP21Tag> tagNodes, string tagName)
         {
             IP21Tag tagNode = tagNodes.Find(node => node.DisplayName.Equals(tagName));
@@ -98,6 +100,47 @@ namespace IP21Streamer.Source.UaSource.IP21
 
             log.Debug(tagObject.ToString());
 
+        }
+        #endregion
+
+        #region Subscriptions
+        public override void SubscribeTo(List<TagItem> subscriptionList)
+        {
+            List<DataMonitoredItem> itemsToMonitor = new List<DataMonitoredItem>();
+
+            itemsToMonitor.AddRange(
+                subscriptionList.Select(subItem =>
+               {
+                   return new DataMonitoredItem(
+                       new NodeId(IdType.Opaque, subItem.MeasurementNodeID, NAMESPACE_INDEX))
+                   {
+                       DataChangeTrigger = DataChangeTrigger.StatusValueTimestamp,
+                       SamplingInterval = SAMPLING_INTERVAL,
+                       UserData = subItem.Tag
+                   };
+               }));
+
+            CreateSubscription();
+            AddMonitoredItemsToSubscription(itemsToMonitor);
+        }
+
+        protected override void Subscription_DataUpdated(Subscription subscription, DataChangedEventArgs args)
+        {
+            foreach (var change in args.DataChanges)
+            {
+                EventItem data = new EventItem
+                {
+                    Tag = change.MonitoredItem.UserData.ToString(),
+                    Value = float.Parse(change.Value.Value.ToString()),
+                    Timestamp = change.Value.SourceTimestamp,
+                    Status = change.Value.StatusCode.Message
+                };
+
+                log.Debug($"Event Received: \n" +
+                    $"{data.ToJson()}");
+
+                _newEventCallback(data);
+            }
         }
         #endregion
 

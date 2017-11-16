@@ -478,3 +478,153 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 System.NullReferenceException: Object reference not set to an instance of an object.
    at IP21Streamer.Source.UaSource.IP21.IP21Source.PrintDebugTagInfo(List`1 tagNodes, String tagName) in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 74
    at IP21Streamer.Source.UaSource.IP21.IP21Source.GetUpdatedModel() in C:\dotNet\UaStreaming\IP21Streamer\Source\UaSource\IP21\IP21Source.cs:line 56
+2017-11-16 13:39:37,801 IP21Streamer.Source.UaSource.UaSource`1[[IP21Streamer.Source.IP21.IP21Tag, IP21Streamer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 13:41:37,798 UaSource [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 13:43:55,148 UaSource [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 14:01:25,887 UaSource [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 15:35:59,719 IP21Streamer.Publisher.EventHub [INFO]- Connected to Event Hub: uastreaming1
+2017-11-16 15:37:00,341 IP21Streamer.Publisher.EventHub [INFO]- Connected to Event Hub: uastreaming1
+2017-11-16 15:37:02,248 UaSource [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 15:37:07,454 IP21Streamer.Publisher.EventHub [INFO]- Failed sending batch to uastreaming1
+2017-11-16 15:37:07,475 IP21Streamer.Publisher.EventHub [INFO]- Closed connection to event hub
+2017-11-16 15:38:41,485 IP21Streamer.Publisher.EventHub [INFO]- Connected to Event Hub: uastreaming1
+2017-11-16 15:38:43,301 UaSource [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 15:38:48,577 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:39:43,676 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:39:48,731 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:40:43,805 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:40:48,870 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:44:54,321 IP21Streamer.Publisher.EventHub [INFO]- Connected to Event Hub: uastreaming1
+2017-11-16 15:44:55,897 UaSource [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 15:45:01,136 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:45:46,344 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:45:51,404 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:46:46,505 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:47:06,033 IP21Streamer.Publisher.EventHub [INFO]- Connected to Event Hub: uastreaming1
+2017-11-16 15:47:07,822 UaSource [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 15:47:12,820 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:47:42,890 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:47:47,942 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:48:43,014 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:48:48,071 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:49:43,130 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:49:48,183 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:50:43,241 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:50:48,297 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:51:43,355 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:51:48,410 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:52:43,476 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:52:48,524 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:53:43,587 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:53:48,648 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:54:43,717 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:54:48,785 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:55:43,837 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:55:48,888 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:56:43,954 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:57:44,036 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:58:44,130 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 15:59:44,214 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:00:44,268 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:01:44,356 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:02:44,643 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:03:44,734 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:04:44,845 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:05:44,897 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:06:39,978 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:06:45,078 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:07:40,160 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:07:45,212 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:08:40,290 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:08:45,343 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:09:40,413 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:09:45,470 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:10:40,523 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:10:45,583 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:11:40,638 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:11:45,688 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:12:40,738 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:12:45,788 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:13:40,849 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:13:45,906 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:14:40,968 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:14:46,020 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:15:41,075 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:15:46,133 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:16:41,200 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:16:46,258 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:17:41,313 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:17:46,366 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:18:41,459 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:18:46,514 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:19:41,573 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:19:46,624 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:20:41,679 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:20:46,728 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:21:41,780 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:21:46,890 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:22:41,957 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:22:47,098 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:23:42,159 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:23:47,256 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:24:42,328 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:24:47,381 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:25:42,452 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:25:47,508 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:26:42,582 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:26:47,679 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:27:42,731 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:27:47,876 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:28:42,930 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:28:47,988 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:29:43,040 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:29:48,175 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:30:43,235 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:30:48,288 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:31:43,339 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:31:48,473 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:32:43,540 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:32:48,588 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:33:43,646 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:33:48,767 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:34:43,822 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:34:48,984 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:35:44,047 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:36:44,132 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:37:44,228 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:38:44,326 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:39:44,418 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:40:44,538 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:41:44,633 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:42:44,724 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:43:44,813 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:44:39,914 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:44:44,965 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:45:40,067 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:45:45,126 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:46:40,180 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:46:45,230 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:52:50,188 IP21Streamer.Publisher.EventHub [INFO]- Connected to Event Hub: uastreaming1
+2017-11-16 16:52:52,318 UaSource [INFO]- Subscription Created: /nPublishingInterval: 2000 
+MaxKeepAliveTime: 10000
+Lifetime: 30000
+2017-11-16 16:52:57,042 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:53:47,145 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:53:52,199 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1
+2017-11-16 16:54:47,267 IP21Streamer.Publisher.EventHub [INFO]- Batch sent successfully to uastreaming1

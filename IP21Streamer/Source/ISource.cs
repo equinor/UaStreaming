@@ -1,4 +1,5 @@
-﻿using IP21Streamer.Source.UaSource;
+﻿using IP21Streamer.Repository;
+using IP21Streamer.Source.UaSource;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,10 @@ namespace IP21Streamer.Source
         void Disconnect();
 
         List<T> GetUpdatedModel();
-        void Subscribe();
+        void CreateSubscription();
         void UpdateSubscription();
 
         void GetEventCounts();
+        void SubscribeTo(List<TagItem> subscriptionList);
     }
 }

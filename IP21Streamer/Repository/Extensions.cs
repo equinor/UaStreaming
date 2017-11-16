@@ -1,5 +1,4 @@
 ﻿using IP21Streamer.Application;
-using IP21Streamer.Business;
 using IP21Streamer.Source.IP21;
 using System;
 using System.Collections.Generic;
@@ -25,8 +24,13 @@ namespace IP21Streamer.Repository
                     Description = sourceEnum.Current.Measurement.Description,
                     EngUnitID = sourceEnum.Current.Measurement.EngineeringUnits.UnitId,
                     EngUnits = sourceEnum.Current.Measurement.EngineeringUnits.DisplayName.Text,
-                    EURangeLow = sourceEnum.Current.Measurement.EuRange.Low,
-                    EURangeHigh = sourceEnum.Current.Measurement.EuRange.High,
+
+                    EURangeLow = assignWithNaNCheck(sourceEnum.Current.Measurement.EuRange.Low),
+                    EURangeHigh = assignWithNaNCheck(sourceEnum.Current.Measurement.EuRange.High),
+                    //EURangeLow = Double.IsNaN(sourceEnum.Current.Measurement.EuRange.Low) ? null : sourceEnum.Current.Measurement.EuRange.Low,
+                    //EURangeHigh = Double.IsNaN(sourceEnum.Current.Measurement.EuRange.High) ? Single.NaN : sourceEnum.Current.Measurement.EuRange.High,
+                    //EURangeHigh = sourceEnum.Current.Measurement.EuRange.High,
+
                     Subscribe = 0,
                     TagNodeID = Convert.ToInt32(sourceEnum.Current.NodeId.Identifier),
                     MeasurementNodeID = sourceEnum.Current.Measurement.NodeId.Identifier as byte[]
@@ -34,6 +38,14 @@ namespace IP21Streamer.Repository
 
                 destTags.Add(newTag);
             }
+        }
+
+        private static double? assignWithNaNCheck(double number)
+        {
+            if (Double.IsNaN(number))
+                return null;
+
+            return number;
         }
     }
 }

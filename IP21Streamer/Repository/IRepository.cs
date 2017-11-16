@@ -11,5 +11,6 @@ namespace IP21Streamer.Repository
         void Initialize();
         void Dispose();
         void UpdateMetaDataWith(List<TagItem> foundTagItems);
+        List<TagItem> GetSubscriptionList();
     }
 }

@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using UnifiedAutomation.UaBase;
 using UnifiedAutomation.UaClient;
+using IP21Streamer.Repository;
 
 namespace IP21Streamer.Source.UaSource
 {
-    abstract class UaSource<T> : ISource<T> where T: UaNode
+    abstract class UaSource<T> : ISource<T> where T : UaNode
     {
         #region Fields
-        private static readonly ILog log = LogManager.GetLogger(typeof(UaSource<T>));
+        private static readonly ILog log = LogManager.GetLogger("UaSource");
 
         protected const int SECONDS = 1000;
         protected const int PUBLISHING_INTERVAL = 2 * SECONDS;
@@ -23,6 +24,7 @@ namespace IP21Streamer.Source.UaSource
         protected ApplicationInstance _applicationInstance;
         protected Session _session = null;
         protected Subscription _subscription = null;
+        protected List<MonitoredItem> _monitoredItems = new List<MonitoredItem>();
         #endregion
 
         #region Construction
@@ -152,15 +154,14 @@ namespace IP21Streamer.Source.UaSource
         #endregion
 
         #region Subscription
-        public void Subscribe()
+        public void CreateSubscription()
         {
             if (_subscription == null || _subscription.ConnectionStatus != SubscriptionConnectionStatus.Created)
-                CreateSubscription();
+                BuildSubscription();
 
-            CreateMonitoringList();
         }
 
-        private void CreateSubscription()
+        protected void BuildSubscription()
         {
             _subscription = new Subscription(_session)
             {
@@ -168,9 +169,9 @@ namespace IP21Streamer.Source.UaSource
                 PublishingInterval = PUBLISHING_INTERVAL,
                 MaxKeepAliveTime = 10 * SECONDS,
                 Lifetime = 15 * SECONDS,
-                //Datachanged += new DataChangedEventHandler();
             };
 
+            _subscription.DataChanged += new DataChangedEventHandler(Subscription_DataUpdated);
             _subscription.Create();
 
             log.Info("Subscription Created: /n" +
@@ -179,9 +180,15 @@ namespace IP21Streamer.Source.UaSource
                 $"Lifetime: {_subscription.CurrentLifetime}");
         }
 
-        private void CreateMonitoringList()
+        protected List<StatusCode> AddMonitoredItemsToSubscription(List<DataMonitoredItem> itemsToMonitor)
         {
-            throw new NotImplementedException();
+            if (!itemsToMonitor.Any())
+                return new List<StatusCode>();
+
+            _monitoredItems.AddRange(itemsToMonitor);
+
+            log.Debug($"Adding {_monitoredItems.Count} to subscription");
+            return _subscription.CreateMonitoredItems(_monitoredItems);
         }
 
         public void UpdateSubscription()
@@ -401,5 +408,10 @@ namespace IP21Streamer.Source.UaSource
         {
             throw new NotImplementedException();
         }
+
+        public abstract void SubscribeTo(List<TagItem> subscriptionList);
+
+        protected abstract void Subscription_DataUpdated(Subscription subscription, DataChangedEventArgs args);
+
     }
 }

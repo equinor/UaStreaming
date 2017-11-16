@@ -1,7 +1,10 @@
-﻿using IP21Streamer.Repository;
+﻿using IP21Streamer.Model;
+using IP21Streamer.Publisher;
+using IP21Streamer.Repository;
 using IP21Streamer.Source;
 using IP21Streamer.Source.IP21;
 using IP21Streamer.Source.UaSource.IP21;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,16 +28,20 @@ namespace IP21Streamer.Application
         #endregion
 
         #region Field
+        private readonly ILog log = LogManager.GetLogger(typeof(App));
+
         private ISource<IP21Tag> _uaSource; // todo: fix the type reference
         private IRepository _metaDataStore;
+        private IPublisher _eventHub;
 
         public static Settings Settings = new Settings();
         #endregion
 
         public App()
         {
-            _uaSource = new IP21Source(ApplicationInstance.Default);
+            _uaSource = new IP21Source(ApplicationInstance.Default, NewEventCallback);
             _metaDataStore = new MetaDataStore(Settings.UaTagsDBConnString);
+            _eventHub = new EventHub(Settings);
 
         }
 
@@ -45,25 +52,30 @@ namespace IP21Streamer.Application
             if (Settings.UpdateDBModel)
                 UpdateMetaDataDB();
 
-            CreateSubscriptions()
+            CreateSubscriptions();
         }
 
         private void CreateSubscriptions()
         {
-            _metaDataStore.GetSubscriptionList();
-
-            _uaSource.SubscribeTo(subscriptionList);
+            _uaSource.SubscribeTo(
+                _metaDataStore.GetSubscriptionList());
         }
 
         private void Initialize()
         {
             _metaDataStore.Initialize();
             _uaSource.Connect(Settings.UaServerUrl, USER_NAME, PASSWORD);
+            _eventHub.Open();
 
             new Thread(KeepSettingsUpToDate).Start();
 
-            if (Settings.Publish)
+            if (Settings.PublishToEventHub)
                 new Thread(Publisher).Start();
+        }
+
+        private void NewEventCallback(EventItem data)
+        {
+            _eventHub.AddToPublishQueue(data.ToJson(), "event");
         }
 
         private void UpdateMetaDataDB()
@@ -84,6 +96,17 @@ namespace IP21Streamer.Application
             {
                 Thread.Sleep(UPDATE_SETTINGS_INTERVAL);
                 Settings.Update();
+            }
+        }
+
+        private void Publisher()
+        {
+            Thread.CurrentThread.IsBackground = true;
+
+            while (Settings.PublishToEventHub)
+            {
+                _eventHub.Publish();
+                Thread.Sleep(Settings.PublishInterval);
             }
         }
 

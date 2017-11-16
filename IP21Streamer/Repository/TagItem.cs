@@ -69,17 +69,17 @@ namespace IP21Streamer.Repository
             set { _engUnit = value; }
         }
 
-        private double _euRangeLow;
+        private double? _euRangeLow;
         [Column(Storage = "_euRangeLow")]
-        public double EURangeLow
+        public double? EURangeLow
         {
             get { return _euRangeLow; }
             set { _euRangeLow = value; }
         }
 
-        private double _euRangeHigh;
+        private double? _euRangeHigh;
         [Column(Storage = "_euRangeHigh")]
-        public double EURangeHigh
+        public double? EURangeHigh
         {
             get { return _euRangeHigh; }
             set { _euRangeHigh = value; }

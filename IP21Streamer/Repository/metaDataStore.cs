@@ -1,13 +1,13 @@
 ﻿using IP21Streamer.Application;
 using IP21Streamer.Extensions;
 using log4net;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace IP21Streamer.Repository
 {
@@ -52,6 +52,15 @@ namespace IP21Streamer.Repository
         {
             int count = 0;
 
+            /*foundTagItems
+                //.GetRange(2000, 200)
+                .ForEach(foundTag => 
+                {
+                    log.Debug($"TAG: {foundTag.Tag}");
+                    log.Debug($"EURangeLow: {foundTag.EURangeLow}");
+                    log.Debug($"EURangeHigh: {foundTag.EURangeHigh}");
+                });*/
+
             while (foundTagItems.Any())
             {
                 var tagBatch = foundTagItems.Dequeue<TagItem>(BATCH_SIZE);
@@ -91,6 +100,18 @@ namespace IP21Streamer.Repository
             }
 
             _dbContext.SubmitChanges();
+        }
+
+        public List<TagItem> GetSubscriptionList()
+        {
+            var results = from tags in _tagItems
+                          where tags.Subscribe != 0
+                          select tags;
+
+            log.Debug(JsonConvert.SerializeObject(results, Formatting.Indented));
+
+            return results.ToList();
+                      
         }
         #endregion
     }
