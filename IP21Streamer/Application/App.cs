@@ -24,7 +24,7 @@ namespace IP21Streamer.Application
 
         // todo: These should be removed at some point
         private const string USER_NAME = "statoil-net\\bomu";
-        private const string PASSWORD = "9oyU6gof";
+        private const string PASSWORD = "";
         #endregion
 
         #region Field
