@@ -1,0 +1,9 @@
+C:\dotNet\UaStreaming\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\dotNet\UaStreaming\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\dotNet\UaStreaming\Domain\bin\Debug\Domain.dll
+C:\dotNet\UaStreaming\Domain\bin\Debug\Domain.pdb
+C:\dotNet\UaStreaming\Domain\bin\Debug\Newtonsoft.Json.dll
+C:\dotNet\UaStreaming\Domain\bin\Debug\Newtonsoft.Json.xml
+C:\dotNet\UaStreaming\Domain\obj\Debug\Domain.csproj.CopyComplete
+C:\dotNet\UaStreaming\Domain\obj\Debug\Domain.dll
+C:\dotNet\UaStreaming\Domain\obj\Debug\Domain.pdb
