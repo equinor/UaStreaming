@@ -21,28 +21,27 @@ namespace UaStreamer.KDI
     public class KSpiceUaSource : UaSource, IEventSource, ISourceBlock<EventPackage>
     {
         #region Fields
-        private static ILogger log = Log.Logger.ForContext<KSpiceUaSource>();
+        private static readonly ILogger Log = Serilog.Log.Logger.ForContext<KSpiceUaSource>();
 
-        private BufferBlock<EventPackage> outBuffer;
+        private readonly BufferBlock<EventPackage> _outBuffer;
+        private readonly string _plantCode;
+        private List<KSpiceVariableData> _variableInformation;
 
-        private string plantCode;
-        private List<KSpiceVariableData> variableInformation;
-
-        public Task Completion => outBuffer.Completion;
+        public Task Completion => _outBuffer.Completion;
         #endregion
 
         #region Constructor
         public KSpiceUaSource(string plantCode, string serverUrl) : base(ApplicationInstance.Default)
         {
-            this.plantCode = plantCode;
+            _plantCode = plantCode;
 
-            outBuffer = new BufferBlock<EventPackage>(
+            _outBuffer = new BufferBlock<EventPackage>(
                     new DataflowBlockOptions() { BoundedCapacity = Constants.KSpiceBufferCapacity});
 
             Connect(serverUrl);
             MapKSpiceUaServer();
 
-            var itemsToMonitor = variableInformation
+            var itemsToMonitor = _variableInformation
                 .Select(variable => variable.BuildMonitoredItem(DataChangeTrigger.StatusValueTimestamp, GetUaSamplingInterval()))
                 .ToList();
 
@@ -76,9 +75,9 @@ namespace UaStreamer.KDI
             {
                 EventVqt @event = new EventVqt();
                 @event.KSpiceFillWith((KSpiceVariableData)change.MonitoredItem.UserData, change);
-                var package = new EventPackage(@event, plantCode, Constants.RealTime, new List<string>());
+                var package = new EventPackage(@event, _plantCode, Constants.RealTime, new List<string>());
 
-                outBuffer.Post(package);
+                _outBuffer.Post(package);
             }
         }
         #endregion
@@ -87,30 +86,30 @@ namespace UaStreamer.KDI
         private void MapKSpiceUaServer()
         {
             NodeId measurementRoot = new NodeId(Constants.KSpiceRoot, Constants.KSpiceNameSpace);
-            variableInformation = BrowseFolderForClass(measurementRoot, NodeClass.Variable)
+            _variableInformation = BrowseFolderForClass(measurementRoot, NodeClass.Variable)
                 .FilterOnTagMatch(GetTagMatchPattern())
-                .ExtractKSpiceVariabeInfo(plantCode);
+                .ExtractKSpiceVariabeInfo(_plantCode);
         }
         #endregion
 
         #region ISourceBlock
         public IDisposable LinkTo(ITargetBlock<EventPackage> target, DataflowLinkOptions linkOptions) 
-            => outBuffer.LinkTo(target, linkOptions);
+            => _outBuffer.LinkTo(target, linkOptions);
 
         public EventPackage ConsumeMessage(DataflowMessageHeader messageHeader, ITargetBlock<EventPackage> target, out bool messageConsumed) 
-            => ((ISourceBlock<EventPackage>)outBuffer).ConsumeMessage(messageHeader, target, out messageConsumed);
+            => ((ISourceBlock<EventPackage>)_outBuffer).ConsumeMessage(messageHeader, target, out messageConsumed);
 
         public bool ReserveMessage(DataflowMessageHeader messageHeader, ITargetBlock<EventPackage> target) 
-            => ((ISourceBlock<EventPackage>)outBuffer).ReserveMessage(messageHeader, target);
+            => ((ISourceBlock<EventPackage>)_outBuffer).ReserveMessage(messageHeader, target);
 
         public void ReleaseReservation(DataflowMessageHeader messageHeader, ITargetBlock<EventPackage> target) 
-            => ((ISourceBlock<EventPackage>)outBuffer).ReleaseReservation(messageHeader, target);
+            => ((ISourceBlock<EventPackage>)_outBuffer).ReleaseReservation(messageHeader, target);
 
         public void Complete() 
-            => outBuffer.Complete();
+            => _outBuffer.Complete();
 
         public void Fault(Exception exception) 
-            => ((ISourceBlock<EventPackage>)outBuffer).Fault(exception);
+            => ((ISourceBlock<EventPackage>)_outBuffer).Fault(exception);
         #endregion
 
 
