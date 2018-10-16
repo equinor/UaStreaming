@@ -1,11 +1,9 @@
 ﻿using Microsoft.ServiceBus.Messaging;
 using Serilog;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
+using Microsoft.ServiceBus;
 
 namespace Targets.EventHub
 {
@@ -22,12 +20,22 @@ namespace Targets.EventHub
         public EventHubTarget(string connectionString, int maxDegreeOfParallelism)
         {
             client = EventHubClient.CreateFromConnectionString(connectionString);
+            client.RetryPolicy = RetryPolicy.NoRetry;
 
             inBuffer = new ActionBlock<EventDataBatch>(async batch =>
             {
-                log.Debug($"Sending batch of count {batch.Count} to {client.Path}");
-                await client.SendBatchAsync(batch.ToEnumerable());
-                log.Debug($"Sent batch of count {batch.Count} to {client.Path}");
+                try
+                {
+                    log.Debug($"Sending batch of count {batch.Count} to {client.Path}");
+                    await client.SendBatchAsync(batch.ToEnumerable());
+                    log.Debug($"Sent batch of count {batch.Count} to {client.Path}");
+                }
+                catch (Exception e)
+                {
+                    log.Error(e, "Send batch to event hub failed");
+                    throw;
+                }
+                
             }, new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = maxDegreeOfParallelism });
         }
         #endregion

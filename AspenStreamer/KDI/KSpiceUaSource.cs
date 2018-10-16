@@ -88,6 +88,8 @@ namespace UaStreamer.KDI
             NodeId measurementRoot = new NodeId(Constants.KSpiceRoot, Constants.KSpiceNameSpace);
             _variableInformation = BrowseFolderForClass(measurementRoot, NodeClass.Variable)
                 .FilterOnTagMatch(GetTagMatchPattern())
+                .OrderBy(reference => reference.BrowseName.Name).ToList()
+                .LimitMatches(GetMatchLimit())
                 .ExtractKSpiceVariabeInfo(_plantCode);
         }
         #endregion

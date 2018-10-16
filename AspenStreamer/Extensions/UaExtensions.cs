@@ -21,6 +21,13 @@ namespace AspenStreamer.Extensions
                 .Where(reference => regex.IsMatch(reference.BrowseName.Name)).ToList();
         }
 
+        internal static List<ReferenceDescription> LimitMatches(this List<ReferenceDescription> references, int limit)
+        {
+            return references
+                .Take(limit)
+                .ToList();
+        }
+
         internal static List<KSpiceVariableData> ExtractKSpiceVariabeInfo(this List<ReferenceDescription> references, string plantCode)
         {
             Regex regex = new Regex(@"^(?<prefix>[^-]+)-(?<equipment>[^:]+):(?<suffix>[\w]+)$");

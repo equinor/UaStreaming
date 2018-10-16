@@ -41,6 +41,9 @@ namespace Common
         public static string GetTagMatchPattern()
             => GetConfigValue("tagMatchPattern");
 
+        public static int GetMatchLimit()
+            => int.Parse(GetConfigValue("maxNumberOfTags"));
+
         internal static string GetLogPath() 
             => GetConfigValue("logPath");
 
